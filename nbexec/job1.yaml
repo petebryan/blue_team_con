@@ -1,0 +1,7 @@
+exec:
+  notebook: ip_explorer.ipynb
+  identifier: ip_address
+papermill:
+  ip_address: 85.214.149.236
+  start: "2022-08-01T17:00"
+  end: "2022-08-01T17:00"

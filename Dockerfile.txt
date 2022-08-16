@@ -1,0 +1,12 @@
+﻿# See here for image contents: https://hub.docker.com/r/jupyter/scipy-notebook
+FROM continuumio/miniconda3
+
+# installing Msticpy requirements and dependencies
+RUN pip install azure-cli
+# RUN pip install --upgrade msticpy[all]
+COPY msticpy-2.0.0-py3-none-any.whl .
+RUN pip install -f . msticpy[all]
+RUN pip install papermill scrapbook black
+
+# RUN sudo apt-get install incron
+# RUN echo /home IN_CREATE python -m run_notebook - $@$#
