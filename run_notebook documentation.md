@@ -25,6 +25,11 @@ nb - holds source notebooks - this can contain multiple folders
 output - stores executed notebook results
 queue - folder for input files with parameters to executed notebooks.
 
+msticpyconfig.yaml
+^^^^^^^^^^^^^^^^^^
+
+Create a suitable msticpyconfig.yaml and copy it to the config folder.
+
 Docker
 ------
 
@@ -111,7 +116,7 @@ python -m run_notebook
 Optional arguments
 ^^^^^^^^^^^^^^^^^^
 
-```
+```bash
   -h, --help            show this help message and exit
   --nb-path NB_PATH, -n NB_PATH
                         Path to input notebooks.
@@ -128,6 +133,29 @@ Optional arguments
   --check-interval CHECK_INTERVAL, -i CHECK_INTERVAL
                         Number of seconds to sleep between checks.
 ```
+
+Authenticating to Azure
+-----------------------
+
+This is an optional step but needed if you require any Azure authentication
+(Key Vault, Sentinel, Defender) in your notebook.
+This simple solution uses Azure CLI authentication at the start of the
+session but you can use a Managed Identity for the container if you
+are running in a cloud service.
+
+Authenticating with Azure CLI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+```bash
+(base) root@a103c9bd16d8:/nbexec# az login
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AY63UFJZX to authenticate.
+```
+
+Copy the code, navigate to the login URL and follow the authentication
+steps as instructed.
+
+Azure CLI will handle token refresh for several hours. This is fine for
+demo/proof of concept purposes but obviously not usable in production.
 
 Running a Notebook
 ------------------
