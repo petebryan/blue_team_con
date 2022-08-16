@@ -129,6 +129,33 @@ Optional arguments
                         Number of seconds to sleep between checks.
 ```
 
+Running a Notebook
+------------------
+
+Create a Job parameters file yaml file and copy it to the queue folder.
+You should see the run_notebook output indicate that it has found and executed it.
+
+```bash
+(msticpy) e:\src\blue_team_con\nbexec>copy job1.yaml queue
+        1 file(s) copied.
+```
+
+Output from `run_notebook.py` in Docker.
+
+```pythonlog
+2022-08-16 16:26:01,289: INFO - Waiting for jobs 3 sec
+2022-08-16 16:26:04,298: INFO - Job created
+2022-08-16 16:26:04,313: INFO - 1ae92c05-066a-4dd8-8f12-9b050e87ebf1 - Job run started: ip_explorer.ipynb (ip_explorer-85.214.149.236-2022-08-16T16-26-04-299101+00-00.ipynb).
+2022-08-16 16:26:04,313: INFO - Input Notebook:  nb/ip_explorer.ipynb
+2022-08-16 16:26:04,313: INFO - Output Notebook: output/2022/08/16/ip_explorer-85.214.149.236-2022-08-16T16-26-04-299101+00-00.ipynb
+2022-08-16 16:26:04,347: WARNING - Black is not installed, parameters wont be formatted
+Executing:   0%|                                | 0/10 [00:00<?, ?cell/s]2022-08-16 16:26:05,544: INFO - Executing notebook with kernel: python3
+Executing:  70%|████████████████▊       | 7/10 [00:05<00:02,  1.17cell/s]
+2022-08-16 16:26:10,409: INFO - 1ae92c05-066a-4dd8-8f12-9b050e87ebf1 - Job run complete: ip_explorer.ipynb (ip_explorer-85.214.149.236-2022-08-16T16-26-04-299101+00-00.ipynb).
+2022-08-16 16:26:10,409: INFO - Job complete
+2022-08-16 16:26:10,409: INFO - Waiting for jobs 3 sec
+```
+
 Outputs
 -------
 
