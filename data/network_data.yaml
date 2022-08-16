@@ -1,0 +1,15 @@
+metadata:
+    version: 1
+    description: Local Data Network Queries
+    data_environments: [LocalData]
+    data_families: [Network]
+    tags: ['network']
+defaults:
+sources:
+    get_network_flows:
+        description: Gets network flow information
+        metadata:
+            data_families: [Network]
+        args:
+            query: network_traffic.csv
+        parameters:
