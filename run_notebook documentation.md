@@ -56,7 +56,7 @@ Run Docker container
 ^^^^^^^^^^^^^^^^^^^^
 
 ```bash
-docker run -it --rm -v e:/src/blue_team_con/nbexec:/nbexec -w /nbexec -e MSTICPYCONFIG='/nbexec/config/msticpyconfig.yaml' blueteamcon:latest bash
+docker run -it --rm -v e:/src/blue_team_con/nbexec:/nbexec -w /nbexec -e MSTICPYCONFIG="/nbexec/config/msticpyconfig.yaml" blueteamcon:latest bash
 ```
 
 Docker run Switches:
@@ -110,7 +110,7 @@ You must copy the run_notebook.py file to the root of your folder structure
 (nbexec in the examples above).
 
 ```bash
-python -m run_notebook
+python -m run_notebook run
 ```
 
 Optional arguments
@@ -171,17 +171,21 @@ You should see the run_notebook output indicate that it has found and executed i
 Output from `run_notebook.py` in Docker.
 
 ```pythonlog
-2022-08-16 16:26:01,289: INFO - Waiting for jobs 3 sec
-2022-08-16 16:26:04,298: INFO - Job created
-2022-08-16 16:26:04,313: INFO - 1ae92c05-066a-4dd8-8f12-9b050e87ebf1 - Job run started: ip_explorer.ipynb (ip_explorer-85.214.149.236-2022-08-16T16-26-04-299101+00-00.ipynb).
-2022-08-16 16:26:04,313: INFO - Input Notebook:  nb/ip_explorer.ipynb
-2022-08-16 16:26:04,313: INFO - Output Notebook: output/2022/08/16/ip_explorer-85.214.149.236-2022-08-16T16-26-04-299101+00-00.ipynb
-2022-08-16 16:26:04,347: WARNING - Black is not installed, parameters wont be formatted
-Executing:   0%|                                | 0/10 [00:00<?, ?cell/s]2022-08-16 16:26:05,544: INFO - Executing notebook with kernel: python3
-Executing:  70%|████████████████▊       | 7/10 [00:05<00:02,  1.17cell/s]
-2022-08-16 16:26:10,409: INFO - 1ae92c05-066a-4dd8-8f12-9b050e87ebf1 - Job run complete: ip_explorer.ipynb (ip_explorer-85.214.149.236-2022-08-16T16-26-04-299101+00-00.ipynb).
-2022-08-16 16:26:10,409: INFO - Job complete
-2022-08-16 16:26:10,409: INFO - Waiting for jobs 3 sec
+2022-08-16 17:29:07,142: INFO - run_notebook started
+2022-08-16 17:29:07,147: INFO - Waiting for jobs 3 sec
+2022-08-16 17:29:10,155: INFO - Waiting for jobs 3 sec
+2022-08-16 17:29:13,165: INFO - Job created
+2022-08-16 17:29:13,178: INFO - 8ec74c11-2c14-4419-bb90-73e2203227cb - Job run started: ip_explorer.ipynb (ip_explorer-85.214.149.236-2022-08-16T17-29-13-165160+00-00.ipynb).
+2022-08-16 17:29:13,179: INFO - Input Notebook:  nb/ip_explorer.ipynb
+2022-08-16 17:29:13,179: INFO - Output Notebook: output/2022/08/16/ip_explorer-85.214.149.236-2022-08-16T17-29-13-165160+00-00.ipynb
+2022-08-16 17:29:13,217: WARNING - Black is not installed, parameters wont be formatted
+Executing:   0%|                                | 0/10 [00:00<?, ?cell/s]2022-08-16 17:29:14,792: INFO - Executing notebook with kernel: python3
+Executing: 100%|███████████████████████| 10/10 [00:12<00:00,  1.28s/cell]
+2022-08-16 17:29:26,113: INFO - 8ec74c11-2c14-4419-bb90-73e2203227cb - Notebook has findings: output/2022/08/16/ip_explorer-85.214.149.236-2022-08-16T17-29-13-165160+00-00.ipynb.
+2022-08-16 17:29:26,114: INFO - 8ec74c11-2c14-4419-bb90-73e2203227cb - Creating notebook copy in findings.
+2022-08-16 17:29:26,154: INFO - 8ec74c11-2c14-4419-bb90-73e2203227cb - Creating html copy in findings.
+2022-08-16 17:29:26,547: INFO - Job complete
+2022-08-16 17:29:26,547: INFO - Waiting for jobs 3 sec
 ```
 
 Outputs
